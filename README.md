@@ -12,6 +12,13 @@ The system consists of two equal masses connected by three identical springs.
 
 ![Schematic diagram of the coupled oscillation system](Images/coupled_oscillations_schematic.png)
 
+### Simulation Parameters
+
+- Mass of each block: 1.0 kg
+- Spring constant: 1.0 N/m
+- Initial conditions $(x_1,x_2,v_1,v_2)$: $(0.10,0,0,0)$
+- Timestep: 0.001 s
+
 The equations of motion are
 
 $$
@@ -34,17 +41,17 @@ For the parameters used in this simulation, $m=1.0\,\mathrm{kg}$ and $k=1.0\,\ma
 
 ## Methods
 
-- **Euler integration:** Numerical solution of the equations of motion.
-- **Energy analysis:** Calculation of kinetic, potential, and total mechanical energy.
-- **Timestep convergence:** Comparison of energy errors for different timestep sizes.
+- **Euler integration:** Numerical solution of the coupled equations of motion using the explicit Euler method.
+- **Energy analysis:** Calculation of kinetic, potential, and total mechanical energy to investigate energy conservation.
+- **Timestep convergence:** Investigation of how timestep size affects numerical energy error.
 - **Euler vs RK4:** Comparison of energy stability over a longer simulation.
-- **FFT analysis:** Estimation of the normal-mode frequencies from simulated displacement data.
-
+- **FFT analysis:** Extraction of normal-mode frequencies from simulated displacement data.                                                 
+  
 ## Key Results
 
 - The Euler method exhibits increasing energy drift over time.
 - Reducing the timestep decreases the final energy error in the Euler simulation.
-- RK4 maintains much better energy stability than Euler for the tested parameters and simulation duration.
+- RK4 exhibits substantially better energy stability than Euler for the tested timestep and simulation duration.
 - The FFT estimates are close to the theoretical normal-mode frequencies, with discrepancies influenced by finite frequency resolution.
 
 ## Tools and Libraries
@@ -66,6 +73,6 @@ pip install -r requirements.txt
 
 Run the notebook cells in order to reproduce the simulations, plots, energy analysis, and frequency calculations.
 
-## Scope
+## Conclusion
 
-This project explores numerical integration and error analysis for a coupled mechanical system. It illustrates how numerical methods can be used to compare simulated behaviour with analytical predictions.
+The simulations demonstrate the behaviour of a coupled oscillator system and illustrate the effects of numerical integration on energy conservation. The comparison between Euler and RK4 highlights the importance of integration method selection, while FFT analysis provides numerical estimates of the system's normal-mode frequencies that can be compared with analytical predictions.
